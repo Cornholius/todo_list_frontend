@@ -28,12 +28,12 @@ export default class ItemAddForm extends Component {
                 <input 
                     type="text" 
                     className="form-control" 
-                    placeholder='what need?'
+                    placeholder='что добавить?'
                     value={this.state.label}
                     onChange={this.onLabelChange}
                     />
                 <button className='btn btn-outline-secondary'>
-                    Add
+                    Добавить
                 </button>
             </form>
         );

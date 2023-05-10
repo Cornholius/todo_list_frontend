@@ -12,17 +12,20 @@ export default class App extends Component {
 
 	state = {
 		todoData: [
-			this.createTask('Drink Coffee'),
-			this.createTask('Make Awesome App'),
-			this.createTask('Have a lunch')
-		]
+			this.createTask('встать'),
+			this.createTask('Сделать кофе'),
+			this.createTask('доделать сайт'),
+			this.createTask('бежать в закат'),
+		],
+		searchFilter: '',
+		btnFilter: 'all'
 	};
 
 	//тестовая фигня. убрать
 	createTask(label) {
 		return {
 			id: taskId++,
-			label: label,
+			label: label.toLowerCase(),
 			important: false,
 			done: false
 		};
@@ -77,9 +80,45 @@ export default class App extends Component {
 		});
 	};
 	
+	searchResult = (items, filter) => {
+		console.log('items', items)
+		console.log('filter', filter.length)
+		if (filter.length > 0) {
+			const result = items.filter((item) => {
+				return item.label.toLowerCase().indexOf(filter.toLowerCase()) > -1;
+			});
+			return result
+		}
+		else {
+			return items
+		}
+	};
+
+	filter(items, filter) {
+		switch(filter) {
+			case 'all':
+				return items;
+			case 'active':
+				return items.filter((item) => !item.done);
+			case 'done':
+				return items.filter((item) => item.done);
+			default:
+				return items;
+		}
+	}
+
+	onChangeSearchPanel = (searchFilter) => {
+		this.setState({searchFilter});
+	};
+
+	onChangeActiveBtn = (btnFilter) => {
+		this.setState({btnFilter})
+	};
+
 	render() {
 
-		const {todoData} = this.state
+		const {todoData, searchFilter, btnFilter} = this.state
+		const visibleItems = this.filter(this.searchResult(todoData, searchFilter), btnFilter)
 		const doneCount = this.state.todoData.filter((i) => i.done).length
 		const taskCount = this.state.todoData.length - doneCount
 
@@ -91,12 +130,14 @@ export default class App extends Component {
 				</div>
 
 				<div className="top-panel d-flex">
-					<SearchPanel />
-					<ItemStatusFilter />
+					<SearchPanel searchText={this.onChangeSearchPanel}/>
+					<ItemStatusFilter 
+						btnFilter={btnFilter}
+						onChangeActiveBtn={this.onChangeActiveBtn}/>
 				</div>
 
 			<TodoList 
-				todos={todoData} 
+				todos={visibleItems} 
 				onDeleted={ this.deleteItem }
 				onToggleDone={this.onToggleDone}
 				onToggleImportant={this.onToggleImportant} />
