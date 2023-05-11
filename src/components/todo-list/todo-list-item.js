@@ -2,13 +2,19 @@ import React, { Component } from 'react';
 
 
 export default class TodoListItem extends Component {
+    
 
+    checkBoxSwitch() {
+        if (this.props.done) { return true }
+        else { return false }
+    };
+	
     render() {
         const { label, onDeleted, 
                 onToggleDone, onToggleImportant, 
                 done, important } = this.props
 
-        let listItem = 'todo-list-item'
+        let listItem = 'todo-list-item-label'
         if (done) {
             listItem += ' done'
         }
@@ -17,25 +23,22 @@ export default class TodoListItem extends Component {
         }
         
         return (
-            <span className={listItem}>
-                {/* <button 
-                    type="button" 
-                    class="btn-close"
-                    onClick={ onToggleDone }>
-                </button> */}
-                <svg className='doneBtn' xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="green" class="bi bi-check2-circle" viewBox="0 0 16 16"
-                onClick={ onToggleDone }>
-                <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z"/>
-                <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z"/>
-                </svg>
+            <span className="todo-list-item">
+                <input 
+                    className="form-check-input" 
+                    type="checkbox" id="checkboxNoLabel" 
+                    value="" 
+                    aria-label="..."
+                    onChange={ onToggleDone }
+                    checked={this.checkBoxSwitch()} />
 
-                <span className="todo-list-item-label">
+                <span className={listItem}>
                     {label}
                 </span>
     
                 <button 
                     type="button" 
-                    className="btn btn-outline-success" 
+                    className="btn btn-outline-info" 
                     onClick={ onToggleImportant }>
                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-exclamation" viewBox="0 0 16 16">
                     <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.553.553 0 0 1-1.1 0L7.1 4.995z"/>

@@ -4,15 +4,19 @@
     justify-content: space-between
     height: 70px
     padding: 0 20px
-    background: linear-gradient(123deg, rgba(57,230,184,0.7035189075630253) 31%, rgba(255,255,255,0.48783263305322133) 79%);
-
+    // background: $orangeGradient
+    background: linear-gradient(45deg, rgba(255,165,1,1) 15%, rgba(148,96,1,1) 40%, rgba(0,0,0,0.4822303921568627) 75%)
+    border-radius: 0 0 5px 5px
     &__title
         display: flex
         align-items: center
         height: 100%
         h1
             font-size: 2.3rem
-
+            @media ( max-width: 460px )
+                font-size: 1.8rem
+            @media ( max-width: 380px )
+                font-size: 1.5rem
     &__counter
         color: grey
         height: 100%
@@ -22,3 +26,7 @@
         h2
             font-size: 1.2rem
             margin: 2px 0
+            @media ( max-width: 460px )
+                font-size: 1rem
+            @media ( max-width: 380px )
+                font-size: 0.9rem

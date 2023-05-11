@@ -1,3 +1,20 @@
+$yellow: #fee440
+$orange: #ffa501
+$skyblue: #BCDDF0
+$blue: #00bbf9
+$magenta: #f15bb5
+$purple: #9b5de5
+$black: #181818
+$lightgrey: rgba(249, 249, 249, 0.7)
+$grey: #777777
+$darkgrey: rgba(49, 51, 53, 1)
+$sidebarIcon: #4d4d4e
+$primary-color: $skyblue
+$orangeGradient: linear-gradient(to right, #ffa501, #ffaf35, #ffb852, #ffc26c, #ffcc85, #ffd69d, #ffe0b5, #ffeace, #fff5e6, #ffffff)
+$yellowGradient: linear-gradient(to right,#fee440, #ffe75b, #ffea72, #ffed87, #ffef9c, #fff2b0, #fff5c4, #fff9d7, #fffceb, #ffffff)
+$skyblueGradient: linear-gradient(to right,#bcddf0, #c3e1f2, #cbe5f3, #d2e8f5, #daecf7, #e1f0f8, #e9f4fa, #f0f7fc, #f8fbfd, #ffffff)
+$dark: linear-gradient(to right,#000000, #434343)
+    
 h1, h2
     margin: 0
     padding: 0
@@ -5,6 +22,8 @@ h1, h2
 body
     margin: 0
     padding: 0
+    @media (max-width: 520px)
+        margin: 0 10px
 i
     width: 40px
     height: 40px
@@ -22,9 +41,34 @@ i
 
     
     
-    
+// тёмная тема
+body
+    background: $black
+.list-group-item
+    background-color: $darkgrey !important
+.todo-list-item-label
+    color: $lightgrey
+.done
+    color: $grey
+input
+    background-color: $darkgrey !important
+    border-color: $grey !important
+button
+    border-color: $grey !important
+.btn-filter-group
+    background-color: $orange
+    &::hover
+        background-color: $orange
+    &:focus
+        background-color: $orange
+    &:active
+        background-color: $orange
+h2
+    color: $lightgrey
+
 @import app-header
 @import item-add-form
 @import search-panel
 @import item-status-filter
 @import todo-list
+

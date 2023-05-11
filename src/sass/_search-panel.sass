@@ -1,10 +1,17 @@
 .top-panel
     display: flex
-
+    flex-wrap: wrap
     button
         font-size: 0.8rem
 
-    .search-input
-        width: auto
-        flex-grow: 1
-        margin-right: 5px
+.btn-group
+    flex-grow: 1
+    @media ( max-width: 407px )
+        margin: 16px 16px 0 16px   
+        
+.search-input
+    width: auto
+    flex-grow: 1
+    margin-right: 5px
+    @media ( max-width: 407px )
+        margin-right: 0

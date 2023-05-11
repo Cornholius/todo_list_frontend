@@ -5,22 +5,31 @@
     display: flex
     align-items: center
     font-size: 1.25rem
+
     button
         width: 36px
         height: 36px
         margin-right: 5px
         padding: 0
+
+    input
+        opacity: 0.7
+
     &-label
         flex-grow: 3
         margin-left: 1.25rem
         line-height: 35px
         cursor: pointer
         user-select: none
+        font-size: 22px
+        @media ( max-width: 460px )
+            font-size: 18px
+        @media ( max-width: 380px )
+            font-size: 14px
 
 .done
-    text-decoration: line-through
+    // text-decoration: line-through
     span
-        color: grey
         opacity: 0.5
 
 .doneBtn
@@ -28,4 +37,4 @@
 
 .important
     font-weight: bold
-    color: steelblue
+    color: $purple

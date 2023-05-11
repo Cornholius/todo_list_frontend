@@ -18,7 +18,7 @@ export default class App extends Component {
 			this.createTask('бежать в закат'),
 		],
 		searchFilter: '',
-		btnFilter: 'all'
+		btnFilter: 'active'
 	};
 
 	//тестовая фигня. убрать

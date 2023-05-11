@@ -32,7 +32,8 @@ export default class ItemAddForm extends Component {
                     value={this.state.label}
                     onChange={this.onLabelChange}
                     />
-                <button className='btn btn-outline-secondary'>
+                {/* <button className='btn btn-outline-secondary'> */}
+                <button className='btn btn-success'>
                     Добавить
                 </button>
             </form>
