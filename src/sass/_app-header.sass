@@ -1,16 +1,24 @@
 .app-header
+    display: flex
     align-items: flex-end
-    h1
-        flex-grow: 1
-    h2
-        font-size: 1.1rem
+    justify-content: space-between
+    height: 70px
+    padding: 0 20px
+    background: linear-gradient(123deg, rgba(57,230,184,0.7035189075630253) 31%, rgba(255,255,255,0.48783263305322133) 79%);
+
+    &__title
+        display: flex
+        align-items: center
+        height: 100%
+        h1
+            font-size: 2.3rem
+
+    &__counter
         color: grey
-
-.top-panel
-    button
-        font-size: 0.8rem
-
-    .search-input
-        width: auto
-        flex-grow: 1
-        margin-right: 3px
+        height: 100%
+        display: flex
+        flex-direction: column
+        justify-content: center
+        h2
+            font-size: 1.2rem
+            margin: 2px 0

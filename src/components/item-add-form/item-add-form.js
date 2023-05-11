@@ -24,7 +24,7 @@ export default class ItemAddForm extends Component {
 
     render() {
         return (
-            <form className="item-add-form d-flex" onSubmit={this.onSubmit}>
+            <form className="item-add-form" onSubmit={this.onSubmit}>
                 <input 
                     type="text" 
                     className="form-control" 

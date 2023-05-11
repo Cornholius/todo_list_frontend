@@ -3,7 +3,7 @@ import AppHeader from './components/header/app-header';
 import SearchPanel from './components/search-panel/search-panel';
 import TodoList from './components/todo-list/todo-list';
 import ItemAddForm from './components/item-add-form/item-add-form'
-import ItemStatusFilter from './components/header/item-status-filter';
+import ItemStatusFilter from './components/item-status-filter/item-status-filter';
 import './sass/index.sass'
 
 
